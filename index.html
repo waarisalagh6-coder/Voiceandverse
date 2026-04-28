@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wild Record – Chernobyl at Forty</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:wght@300;400;600&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede6;
+      font-family: 'Source Serif 4', Georgia, serif;
+      color: #1a1a1a;
+    }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      background: #1b2c1b;
+      color: #f0ede6;
+      text-align: center;
+      padding: 18px 20px 12px;
+      border-bottom: 4px solid #6e9e4f;
+    }
+    .masthead-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: #a8b89a;
+      max-width: 1100px;
+      margin: 0 auto 8px;
+    }
+    .masthead h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 8vw, 88px);
+      font-weight: 900;
+      letter-spacing: -.02em;
+      line-height: 1;
+      color: #f0ede6;
+    }
+    .masthead .tagline {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 12px;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: #6e9e4f;
+      margin-top: 6px;
+    }
+    .nav-strip {
+      background: #6e9e4f;
+      text-align: center;
+      padding: 6px 10px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 11.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #1b2c1b;
+      font-weight: 600;
+    }
+    .nav-strip span { margin: 0 14px; }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 16px 60px;
+    }
+
+    /* ── EDITION BANNER ── */
+    .edition-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 2px solid #1b2c1b;
+      border-bottom: 1px solid #1b2c1b;
+      padding: 5px 0;
+      margin-bottom: 22px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 11.5px;
+      letter-spacing: .07em;
+    }
+
+    /* ── HERO GRID ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1px 300px;
+      gap: 0 24px;
+      margin-bottom: 28px;
+    }
+    .divider-v {
+      background: #1b2c1b;
+      width: 1px;
+    }
+
+    /* Main story */
+    .main-story .kicker {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 10.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #6e9e4f;
+      margin-bottom: 6px;
+    }
+    .main-story h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 10px;
+    }
+    .main-story .byline {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 14px;
+      letter-spacing: .04em;
+    }
+    .main-story p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .main-story p:first-of-type::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 4em;
+      float: left;
+      line-height: .82;
+      margin: 4px 6px 0 0;
+      font-weight: 700;
+      color: #1b2c1b;
+    }
+    .pull-quote {
+      border-left: 4px solid #6e9e4f;
+      margin: 18px 0;
+      padding: 10px 16px;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    /* Sidebar */
+    .sidebar .sidebar-story {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #c5bfb0;
+    }
+    .sidebar .sidebar-story:last-child { border-bottom: none; }
+    .sidebar .kicker {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 9.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #6e9e4f;
+      margin-bottom: 4px;
+    }
+    .sidebar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .sidebar p {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #333;
+    }
+
+    /* ── RULE ── */
+    hr.section-rule {
+      border: none;
+      border-top: 2px solid #1b2c1b;
+      margin: 24px 0 20px;
+    }
+
+    /* ── SECONDARY STORIES ROW ── */
+    .secondary-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .sec-story .kicker {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 9.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #6e9e4f;
+      margin-bottom: 4px;
+    }
+    .sec-story h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .sec-story .byline {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 10.5px;
+      color: #777;
+      margin-bottom: 8px;
+    }
+    .sec-story p {
+      font-size: 13.5px;
+      line-height: 1.68;
+      color: #222;
+    }
+    .sec-story + .sec-story {
+      border-left: 1px solid #c5bfb0;
+      padding-left: 24px;
+    }
+
+    /* ── OPINION BOX ── */
+    .opinion-box {
+      background: #1b2c1b;
+      color: #f0ede6;
+      padding: 22px 28px;
+      margin-bottom: 28px;
+    }
+    .opinion-box .label {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 10px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: #6e9e4f;
+      margin-bottom: 8px;
+    }
+    .opinion-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .opinion-box p {
+      font-size: 13.5px;
+      line-height: 1.72;
+      color: #d8d4cc;
+    }
+    .opinion-box .author {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 11px;
+      color: #6e9e4f;
+      margin-top: 14px;
+      letter-spacing: .06em;
+    }
+
+    /* ── STATISTICS BAND ── */
+    .stats-band {
+      background: #6e9e4f;
+      display: flex;
+      justify-content: space-around;
+      padding: 18px 10px;
+      margin-bottom: 28px;
+    }
+    .stat-item { text-align: center; }
+    .stat-item .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 900;
+      color: #1b2c1b;
+      display: block;
+    }
+    .stat-item .desc {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 10.5px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #1b2c1b;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1b2c1b;
+      color: #7a9470;
+      text-align: center;
+      padding: 16px 20px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 11px;
+      letter-spacing: .06em;
+      border-top: 3px solid #6e9e4f;
+    }
+    footer strong { color: #f0ede6; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; }
+      .divider-v { display: none; }
+      .secondary-row { grid-template-columns: 1fr; }
+      .sec-story + .sec-story { border-left: none; padding-left: 0; border-top: 1px solid #c5bfb0; padding-top: 20px; }
+      .stats-band { flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-top">
+    <span>VOLUME IV &nbsp;|&nbsp; ISSUE 17</span>
+    <span>TUESDAY, APRIL 28, 2026</span>
+    <span>SPECIAL ANNIVERSARY EDITION</span>
+  </div>
+  <h1>Wild Record</h1>
+  <p class="tagline">Nature &nbsp;·&nbsp; Science &nbsp;·&nbsp; The Living World</p>
+</div>
+<div class="nav-strip">
+  <span>Wildlife</span>
+  <span>Ecology</span>
+  <span>Nuclear Science</span>
+  <span>Conservation</span>
+  <span>Field Reports</span>
+  <span>Opinion</span>
+</div>
+
+<div class="wrapper">
+
+  <!-- EDITION BAR -->
+  <div class="edition-bar">
+    <span>CHERNOBYL AT FORTY: SPECIAL REPORT</span>
+    <span>★ BBC FUTURE — APRIL 26, 2026 ★</span>
+    <span>TUESDAY, APRIL 28, 2026</span>
+  </div>
+
+  <!-- HERO GRID -->
+  <div class="hero">
+    <!-- MAIN STORY -->
+    <div class="main-story">
+      <div class="kicker">Cover Investigation</div>
+      <h2>The Forest That Radiation Built: Chernobyl's Extraordinary Wildlife Comeback</h2>
+      <div class="byline">By Chris Baraniuk &nbsp;|&nbsp; BBC Future &nbsp;·&nbsp; April 26, 2026</div>
+      <p>Forty years after the explosion at Reactor Four sent clouds of radiation across Europe and forced the evacuation of entire towns, the exclusion zone around Chernobyl has become one of the most unusual ecological experiments on Earth. Scientists visiting the 2,600 km² restricted area — roughly the size of Luxembourg — expected a wasteland. What they found was something far stranger and more wondrous: a landscape teeming with life.</p>
+      <p>Wolves now roam widely across the zone. Brown bears have reappeared after long absences. European bison move through abandoned farmland. Lynx, elk, moose, and boar occupy habitats once fragmented by agriculture and human settlement. Wolf populations within the exclusion zone are estimated to be seven times higher than in the surrounding nature reserves. The decisive factor, researchers believe, is not radiation tolerance — it is the sudden, total absence of people. Hunting stopped. Roads crumbled. And nature rushed in to fill the silence.</p>
+      <div class="pull-quote">"I expected silence and scarcity — a lifeless place defined by radiation. Instead, I found beavers swimming beneath a nuclear power plant." — Science journalist, first visiting in 2016</div>
+      <p>Yet the story is not one of simple triumph. Radiation continues to exert real biological pressure, often in subtle and uneven ways. Tree frogs near the plant have been documented with darker skin — possibly an adaptation using elevated melanin as a shield against ionising radiation, according to researcher Pablo Burraco. Birds in higher-radiation areas are more likely to develop cataracts. Critics like Timothy Mousseau caution that correlating such traits with radiation alone is difficult, given the zone's legacy of heavy metal contamination and other stressors. Tidy conclusions, forty years on, continue to elude science.</p>
+    </div>
+
+    <div class="divider-v"></div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-story">
+        <div class="kicker">Megafauna</div>
+        <h3>Przewalski's Horses Roam Free Across Radioactive Steppe</h3>
+        <p>Around 150 of the world's last truly wild horses now range freely through the exclusion zone, introduced in the late 1990s. Sand-coloured and stocky, they graze in landscapes no longer managed by humans — a living symbol of Chernobyl's accidental rewilding.</p>
+      </div>
+      <div class="sidebar-story">
+        <div class="kicker">Adaptation</div>
+        <h3>Darker Frogs, Clouded Eyes: Radiation Leaves Its Quiet Mark</h3>
+        <p>Local tree frogs show unusually dark pigmentation, and birds in the most contaminated areas develop cataracts at elevated rates. Researchers debate whether these are genuine adaptations to radiation or artefacts of other environmental pressures layered over four decades.</p>
+      </div>
+      <div class="sidebar-story">
+        <div class="kicker">New Threats</div>
+        <h3>Russia's Invasion Brings War Into the Exclusion Zone</h3>
+        <p>Russian forces advancing on Kyiv in 2022 dug defensive trenches through contaminated soil and set fire to forests. Drone-triggered blazes now force firefighters to travel dozens of kilometres across minefields, raising fears that radioactive particles are being sent airborne once more.</p>
+      </div>
+    </div>
+  </div><!-- /hero -->
+
+  <hr class="section-rule"/>
+
+  <!-- STATS BAND -->
+  <div class="stats-band">
+    <div class="stat-item">
+      <span class="num">4,500 km²</span>
+      <span class="desc">Total affected landscape (incl. Belarus)</span>
+    </div>
+    <div class="stat-item">
+      <span class="num">7×</span>
+      <span class="desc">Wolf density vs. surrounding reserves</span>
+    </div>
+    <div class="stat-item">
+      <span class="num">150</span>
+      <span class="desc">Przewalski's horses in the zone</span>
+    </div>
+    <div class="stat-item">
+      <span class="num">40 yrs</span>
+      <span class="desc">Since the April 26, 1986 explosion</span>
+    </div>
+  </div>
+
+  <!-- SECONDARY ROW -->
+  <div class="secondary-row">
+    <div class="sec-story">
+      <div class="kicker">Ecological Science</div>
+      <h3>The Red Forest's Long Shadow: When Radiation Kills, Then Retreats</h3>
+      <div class="byline">Field Report &nbsp;|&nbsp; Wild Record Science Desk</div>
+      <p>In the days after the 1986 explosion, pine forests closest to the plant absorbed such intense radiation that their needles turned a vivid orange-red before the trees died entirely — giving rise to the haunting name "Red Forest." Decades later, those same soils host new growth, though scientists note the recovery is patchy, shaped by contamination and chance rather than any clean ecological narrative.</p>
+    </div>
+    <div class="sec-story">
+      <div class="kicker">Conservation Debate</div>
+      <h3>Refuge or Ruin? Scientists Clash Over What Chernobyl's Wildlife Actually Tells Us</h3>
+      <div class="byline">Analysis &nbsp;|&nbsp; Wild Record</div>
+      <p>The exclusion zone is celebrated as evidence that nature rebounds when humans retreat, yet researchers remain sharply divided. Some see a flourishing ecosystem; others document invisible harm — shortened lifespans, reproductive stress, subtle mutations — that never makes the headlines. As science writer Mary Mycio argues, Chernobyl is not a return to some pristine past, but the emergence of an entirely new ecosystem shaped by contamination, abandonment, and time.</p>
+    </div>
+    <div class="sec-story">
+      <div class="kicker">Long View</div>
+      <h3>Chernobyl as Living Laboratory: What Four Decades of Study Have — and Haven't — Revealed</h3>
+      <div class="byline">Feature &nbsp;|&nbsp; Wild Record</div>
+      <p>No other site on Earth offers scientists such a concentrated, long-running window into how ecosystems respond to catastrophic radioactive contamination. Yet the zone's very complexity — radiation, chemical pollution, human absence, and now war — makes extracting clean conclusions nearly impossible. The exclusion zone is likely to remain off-limits for generations, too dangerous for permanent human habitation, yet full of life that defies easy explanation.</p>
+    </div>
+  </div>
+
+  <!-- OPINION BOX -->
+  <div class="opinion-box">
+    <div class="label">Editorial &nbsp;|&nbsp; Wild Record</div>
+    <h3>Nature Did Not Forgive Chernobyl. It Simply Moved In.</h3>
+    <p>There is a temptation, in commemorating forty years since the worst nuclear disaster in history, to reach for a story of redemption — wolves where there were none, horses grazing on radioactive steppe, beavers beneath a cooling pond. And that story is true, as far as it goes. But it is not the whole truth. Radiation has not been neutralised by time or by the astonishing resilience of living things. It continues to work at the cellular level, in ways that are quieter than monsters and harder to photograph than a lynx in the snow. What Chernobyl teaches us, four decades on, is not that nature heals all wounds — but that life is stubbornly, improbably persistent even in the face of what we inflict upon it. That ought to inspire humility, not comfort.</p>
+    <div class="author">— The Editors, Wild Record</div>
+  </div>
+
+</div><!-- /wrapper -->
+
+<footer>
+  <strong>Wild Record</strong> &nbsp;·&nbsp; Published by Terrain Media &nbsp;·&nbsp; Science &amp; Nature Journalism
+  &nbsp;·&nbsp; Source: BBC Future, Chris Baraniuk, April 26, 2026 &nbsp;·&nbsp; Additional reporting: Euronews, BBC Science Focus, World Nuclear News
+</footer>
+
+</body>
+</html>
